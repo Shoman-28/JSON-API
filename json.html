@@ -8,6 +8,7 @@
 <body>
     <h1>JSON</h1>
 <h1>JavaScript Object Nation</h1>
+<button> <a href="jsonPost.html">click next pag</a></button>
 <ul id="users-container">
     
 </ul>
@@ -18,16 +19,26 @@
     .then (json => displayUser(json))
     .catch (error => console.log(error))
 
-    function displayUser(users){        
-        const userName = users.map(user => user.email);
-        const ul = document.getElementById("users-container");
+    // function displayUser(users){        
+    //     const userName = users.map(user => user.email);
+    //     const ul = document.getElementById("users-container");
 
-        for(let i = 0; i < userName.length; i++){
-            const username = userName [i];
-            const li = document.createElement("li");
-            li.innerText = username;
+    //     for(let i = 0; i < userName.length; i++){
+    //         const username = userName [i];
+    //         const li = document.createElement("li");
+    //         li.innerText = username;
+    //         ul.appendChild(li);
+    //     }
+    // }
+
+    function displayUser(user){
+        const userName = user.map((x)=> {
+            const li = document.createElement('li');
+            li.innerText = x.name;
+
+            const ul = document.getElementById('users-container');
             ul.appendChild(li);
-        }
+        })
     }
 </script>
 </body>
